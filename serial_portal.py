@@ -13,8 +13,7 @@ import ssh2
 
 redssh.clients.default_client = 'LibSSH2'
 
-DEBUG = True
-# DEBUG = False
+DEBUG = False
 current_dir = os.getcwd()
 
 
@@ -140,6 +139,9 @@ class serialPortal:
         f = open(os.path.join(current_dir, 'config.yaml'), 'r')
         self.config = yaml.load(f,Loader=yaml.FullLoader)
         f.close()
+
+        global DEBUG
+        DEBUG = self.config.get('debug', False)
 
         # deletes config keys for sessions or serial devices that have enable == False
         enable_key = 'enable'

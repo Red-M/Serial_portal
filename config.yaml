@@ -1,9 +1,10 @@
 kill_allowed: true
+debug: false
 sessions:
   raspbee:
     user: pi
     host: 192.168.0.133 # raspbee
-    key_file: raspbee/raspbee_key
+    key_file: raspbee_key
     serial_devices:
       /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0:
         baudrate: 115200
@@ -17,7 +18,7 @@ sessions:
         enable: false
         baudrate: 115200
         mode: pty
-        path: /usr/share/hassio/addons/data/a0d7b954_zwavejs2mqtt/ttyAMA0
+        path: /tmp/ttyAMA1
         options:
           remote: rawer,echo=0,nonblock
           local: rawer
